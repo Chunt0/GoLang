@@ -28,6 +28,7 @@ func main() {
 	for adventInput.Scan() {
 		line := adventInput.Text()
 		val, _ := strconv.Atoi(line)
+		check(err)
 		lines = append(lines, val)
 	}
 
