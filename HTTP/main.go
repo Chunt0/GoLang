@@ -6,14 +6,19 @@ package main
 // Accept connections -> must listen on a specific port to accept connections
 
 import (
+	"fmt"
 	"net/http"
+	"webdev/util"
 
 	"github.com/gorilla/mux"
 )
 
 func main() {
+	s := "Megan Cooper"
+	length := util.StringLength(s)
+	fmt.Println(length)
+
 	r := mux.NewRouter()
 
-	r.HandleFunc()
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", r)
 }
