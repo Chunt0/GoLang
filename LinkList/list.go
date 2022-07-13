@@ -7,54 +7,54 @@ type Node struct {
 	next  *Node
 }
 
-type Queue struct {
+type List struct {
 	position int
 	head     *Node
 }
 
-func (q *Queue) enqueue() {
-	n := &Node{value: q.position}
-	current := q.head
-	q.position++
-	if q.head != nil {
+func (l *List) enqueue() {
+	n := &Node{value: l.position}
+	current := l.head
+	l.position++
+	if l.head != nil {
 		for current.next != nil {
 			current = current.next
 		}
 		current.next = n
 		return
 	}
-	q.head = n
+	l.head = n
 	return
 }
 
-func (q *Queue) dequeue() {
-	q.head = q.head.next
+func (l *List) dequeue() {
+	l.head = l.head.next
 }
 
-func (q *Queue) print() {
-	current := &q.head
+func (l *List) print() {
+	current := &l.head
 	for current != nil {
 		fmt.Println((*current).value)
 	}
 }
 
 func main() {
-	var queue *Queue
-	queue = &Queue{
+	var list *List
+	list = &List{
 		head:     nil,
 		position: 0,
 	}
 
-	queue.enqueue()
-	queue.print()
-	queue.enqueue()
-	queue.print()
-	queue.enqueue()
-	queue.print()
-	queue.enqueue()
-	queue.print()
-	queue.dequeue()
-	queue.print()
-	queue.dequeue()
-	queue.print()
+	list.enqueue()
+	list.print()
+	list.enqueue()
+	list.print()
+	list.enqueue()
+	list.print()
+	list.enqueue()
+	list.print()
+	list.dequeue()
+	list.print()
+	list.dequeue()
+	list.print()
 }
